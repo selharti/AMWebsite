@@ -44,3 +44,30 @@ set :rails_env, "production"
 task :after_update_code do
   run "ln -s #{deploy_to}/#{shared_dir}/config/database.yml #{current_release}/config/database.yml"
 end
+
+#############################################################
+# Passenger
+#############################################################
+
+namespace :deploy do
+  
+  # Restart passenger on deploy
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+  
+  [:start, :stop].each do |t|
+    desc "#{t} task is a no-op with mod_rails"
+    task t, :roles => :app do ; end
+  end
+
+end
+
+namespace :app do  
+  desc 'Signal Passenger to restart the application.'  
+  task :restart, :roles => :app, :except => { :no_release => true } do  
+    run "touch #{current_path}/tmp/restart.txt"  
+  end  
+end 
+
