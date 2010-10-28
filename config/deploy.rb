@@ -3,9 +3,9 @@ set :application, "amwebsite"
 
 
 set :scm, :git
-set :scm_command, "C:/Dev/GitHub/PortableGit-1.7.1-preview20100612/bin/git"
+set :local_scm_command, "C:/Dev/GitHub/PortableGit-1.7.1-preview20100612/bin/git"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
-set :repository,  "git@github.com:selharti/AMWebsite.git"
+set :repository,  "git://github.com/selharti/AMWebsite.git"
 set :branch , "master"
 
 set :user, "agilemaroc"
@@ -18,7 +18,7 @@ role :db, domain, :primary => true
 set :deploy_to, "/var/www/apps/agilemaroc"
 
 default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
+#ssh_options[:forward_agent] = true
 #ssh_options[:keys] = %w{c:/Dev/GitHub/PortableGit-1.7.1-preview20100612/.ssh/id_rsa}
 
 set :scm_passphrase, "selharti2008"
@@ -40,3 +40,7 @@ set :rails_env, "production"
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+task :after_update_code do
+  run "ln -s #{deploy_to}/#{shared_dir}/config/database.yml #{current_release}/config/database.yml"
+end
