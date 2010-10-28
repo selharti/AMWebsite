@@ -1,0 +1,25 @@
+<h1>Event: <%=h @event.name %></h1>
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %> | 
+<%= link_to 'Register', events_path %>
+
+<table valign=top>
+	<tr>
+		<td >
+		<p class="post-date"><br>
+		    <span class="month"><%=h @event.datetime.day %></span>
+		    <span class="month"><%=h @event.datetime.month %></span> 
+		    <span class="month"><%=h @event.datetime.year %></span> 
+		</p>
+		</td>
+		<td>
+			<p><b>Name:</b>
+				<%=h @event.name %>
+			</p>
+			<p><b>Description:</b>
+  			  <%=h @event.description %>
+			</p>		
+		</td>
+		<td><b>Prix:</b> <%=h price(@event.price) %></td>
+	</tr>
+</table>

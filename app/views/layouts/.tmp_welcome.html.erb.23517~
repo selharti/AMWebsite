@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>Agile Maroc - Groupe d'utilisateurs</title>
+  <%= stylesheet_link_tag "depot", :media => "all" %>
+</head>
+
+<body id="store">
+  <div id="banner">
+    <%= image_tag("AMLogo_tw.png")  %>
+    <%= @page_title || "Agile Maroc - Groupe d'utilisateurs" %>
+	</div>
+   <div id="socialNetworks" align=right>
+  	<a  target=new href="http://www.linkedin.com/groups?home=&gid=2798262&trk=anet_ug_hm">
+  		<%= image_tag("linkedin.png")  %></a> 
+	<a target=new href="http://www.twitter.com/agileMaroc">
+  		<%= image_tag("twitter.png")  %></a> 
+	<a target=new href="http://www.facebook.com">
+  		<%= image_tag("facebook.png")  %></a> 
+	</div>
+ <div id="share" align=right>
+<!-- AddToAny BEGIN -->
+<a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=MuURL&amp;linkname=MuPage"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
+<script type="text/javascript">
+var a2a_config = a2a_config || {};
+a2a_config.linkname = "MuPage";
+a2a_config.linkurl = "MuURL";
+</script>
+<script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+ 	</div>
+  <div id="menu2" class="button">
+		<a  href="/welcome">Bienvenue</a>
+		<a href="/events" >Evenements</a>
+		<a href="/news"   >Nouvelles</a>
+		<a href="History">Historique</a>
+		<a href="/contact">Contactez-nous</a>	
+  </div> 
+  <div id="columns">
+    <div id="main">
+    	<p style="color: green"><%= flash[:notice] %></p>
+      <%= yield :layout %>
+	  <%= javascript_include_tag :defaults %>
+    </div>
+  </div>
+</body>
+<div> FOOter</div>
+</html>
+

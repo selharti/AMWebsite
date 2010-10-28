@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/main.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div id="header_img">
+                    <a href="/welcome"><img src="/images/AMLogo_tw.png" /></a>
+                </div>
+                <div id="smallmenu">
+                	<!-- %= welcome_connect % -->
+					<% if user_signed_in? %>
+						Bienvenue <%= current_user.email %>
+						| <%= link_to "sign out", destroy_user_session_path %> 
+					<% else %>
+						<%= link_to "sign up", new_user_registration_path  %> | or <%= link_to "sign in", new_user_session_path %>  
+					<% end  %>
+					
+                    | <a href="/langage">langue</a>
+                </div>
+                <div id="header_title" _style="font-size: 120%;  font-family: sans-serif;">
+                    <%= @page_title || "Agile Maroc -Missing-" %>
+                    <div style="font-size: 30%; margin-top:-1.5em">
+                        <%= @page_title_slogon || "Agile Maroc slogon -Missing-" %>
+                    </div>
+                </div>
+                <div id="section">
+                    <%= @section || "Section - Missing-" %>
+                </div>
+            </div>
+            <!--                 <br clear="left" />-->
+            <div>
+                <div id="menu">
+                    <%= link_to('Acceuil', '/welcome') %>
+                    <%= link_to('Événements', '/events') %>
+                    <%= link_to('Nouvelles', '/news') %>
+                    <%= secured_link_to('Membres', '/members') %>
+					<%= link_to('Contactez-nous', '/messages/new') %>
+                </div>
+                <div id="SocialFollow">
+                    <!-- Start SocialFollow.com Button Code --><!-- desactivated for dev
+                    <img src="http://www.socialfollow.com/button/image/?b=6060" class="socialFollowImage" alt="Follow Me!" />
+                    <script type="text/javascript" src="http://www.socialfollow.com/button/?b=6060">
+                    </script>
+                    <script type="text/javascript">
+                    socialfollow.init("socialFollowImage");
+                    </script>
+                    --><!-- End SocialFollow.com Button Code -->
+                </div>
+            </div>
+            <div id="middle">
+                <p style="color: green">
+                    <%= flash[:notice] %>
+                </p>
+                <%= yield :layout %>
+            </div>
+            <div id="sponsors">
+                <div id="SponsorsVerticalLabel">
+                    SPONSORS
+                </div>
+                <div id="sponsorL1Img">
+                    <a href="http://www.drivedestinyX.com"><img src="/images/DriveDestinyeX.png" height=70 width=70 border=none /></a>
+                </div>
+                <div id="sponsorL1Name">
+                    <a href="http://www.drivedestinyX.com">Drive Destiny eXperience</a>
+                </div>
+            </div>
+            <div id="footer">
+                <div id="share">
+                    <!-- AddToAny BEGIN --><!-- desactivated for dev
+                    <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=MuURL&amp;linkname=MuPage"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
+                    <script type="text/javascript">
+                    var a2a_config = a2a_config || {};
+                    a2a_config.linkname = "Agile Maroc";
+                    a2a_config.linkurl = "http://www.agilemaroc.org/welcome";
+                    </script>
+                    <script type="text/javascript" src="http://static.addtoany.com/menu/page.js">
+                    </script>
+                    --><!-- AddToAny END -->
+                </div>
+                <div id="footerCR">
+                    Copyright ©2010, Agile Maroc. All Rights Reserved.
+                </div>
+            </div>
+            <div id="underfooter">
+                Site conçu et maintenu gracieusement par: <a href="http://www.drivedestinyX.com">Drive Destiny eXperience Inc.</a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+<p>
+  <%=h @news.datetime.to_date %>  <b><%=h @news.title %></b>
+</p>
+<p>
+ <%= @news.body %>
+</p>
+<%= link_to 'Edit', edit_news_item_path(@news) %> |
+<%= link_to 'Back', news_path %>

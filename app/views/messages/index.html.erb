@@ -1,0 +1,56 @@
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0"> 
+<tr>
+        <td align="left" colspan="3">
+            <h1>Liste des messages</h1>
+        </td>
+        <td class="crud_Add_td" colspan="2"> 
+            
+			<!-- <a action="/messages/new" href="/messages"><img height="30" border="0" width="30" src="/images/crud-add.png?1286910116" alt="Crud-add"></a> -->
+			<%= crud_link_to_add(new_message_path) %> 
+        </td> 
+
+<!-- <table valign=top border=1 width=180px>
+    <tr>
+        <td colspan=3 align=left>
+            <h1>Liste des messages</h1>
+        </td>
+        <td colspan=3 class="crud_Add_td">
+            <%= crud_link_to_add(new_message_path) %>
+        </td>
+    </tr>
+	-->
+    <tr style="font-weight:bold;">
+        <td>
+            from
+        </td>
+        <td>
+           body
+        </td>
+        <td colspan=3>
+        </td>
+    </tr>
+    <% rownum = 0 %>
+	<% @messages.each do |message| %>
+	<% rownum = rownum  + 1 %>
+    <tr valign=top
+	 <%=h row_alternate_style(rownum)%>
+		>
+        <td height=auto>
+            <% link_to(message)  do %>
+            <%=h message.from %>
+            <% end %>
+        </td>
+        <td height=auto>
+            <span _class="event_title"><%=h message.body %></span>
+        </td>
+
+        <td class="crud_Edit_Delete_td">
+			<%= crud_link_to_edit(edit_message_path(message) ) %> 
+        </td>
+        <td class="crud_Edit_Delete_td">
+			<%= crud_link_to_delete(message ) %> 
+        </td>
+    </tr>
+    <% end %>
+</table>
+<br/>

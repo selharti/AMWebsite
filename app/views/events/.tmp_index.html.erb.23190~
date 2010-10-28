@@ -1,0 +1,52 @@
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0"> 
+    <tr style="width=30em">
+        <td colspan=3 align=left>
+            <h1>Liste d'événements</h1>
+        </td>
+        <td colspan=3 class="crud_Add_td">
+			<%= crud_link_to_add(new_event_path) %> 
+        </td>
+    </tr>
+	<% rownum = 0 %>
+    <% @events.each do |event| %>
+	<% rownum = rownum  + 1 %>
+    <tr valign=top 	 <%=h row_alternate_style(rownum)%> >
+        <td rowspan=2 background="/images/date.png" width=80px height=auto style="text-align:center; background-repeat:no-repeat;">
+            <P>
+                <span class="event_date_bigday"><%=h event.datetime.day %>
+                </span>
+            </P>
+            <P>
+                <span class="event_date_bigmonth"><%=h h_month_to_string(event.datetime.month,true) %>
+                </span>
+            </P>
+            <P>
+                <span class="event_date_bigyear"><%=h event.datetime.year %>
+                </span>
+            </P>
+        </td>
+        <td height=auto>
+            <span class="event_title">
+			<% link_to(event)  do %>
+				<%=h event.name  %> 
+			<% end %>	
+			</span>
+        </td>
+        <td><%=h h_price(event.price) %><br>
+			<%= registerUnregister(event, session[:member] || nil ) %>
+        </td>
+       <td class="crud_Edit_Delete_td">
+			<%= crud_link_to_edit(edit_event_path(event) ) %> 
+        </td>
+        <td class="crud_Edit_Delete_td">
+			<%= crud_link_to_delete(event)%> 
+        </td>
+    </tr>
+    <tr>
+        <td colspan=4>
+            <span class="event_description"><%=h event.description %></span>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<br/>

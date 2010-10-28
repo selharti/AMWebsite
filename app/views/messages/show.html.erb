@@ -1,0 +1,55 @@
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
+
+<% form_for(@member) do |f| %>
+<table valign=top>
+	<tr>
+  <td>
+  	<p>
+    Nom de famille: <%= @member.lastname %>
+  </p>
+  <p>
+    Prénom:  <%= @member.firstname %>
+  </p>
+  <p>
+    Compagnie/Organisation: <%= @member.company_name %>
+  </p>
+  <p>
+    Adresse: <%= @member.company_address %>
+  </p>
+   <p>
+    Fonction: <%= @member.function %>
+  </p>
+    <p>
+    Tél. Bureau: <%= @member.phone_office %>  
+  </p>    <p>
+    Cell. : <%= @member.phone_cell %>  
+  </p>    <p>
+    Tél. Domicile: <%= @member.phone_home %>  
+  </p>
+  <p>
+    Note: <%= 	@member.note%>
+  </p>
+  </td>
+</tr>	
+	<!-- <th>
+		<td>Nom, Prénom</td>
+		<td>Companie</td>
+		<td>Fonction</td>
+	</th>
+	<tr>
+		<td ><%=h @member.lastname %>, <%=h @member.firstname %></td>
+		<td>
+ 			  <%=h @member.company_name%>
+			  
+		</td>
+		<td>
+ 			  <%=h @member.function%>
+			  -->
+		</td>
+
+	</tr>
+</table>
+
+<% end %>

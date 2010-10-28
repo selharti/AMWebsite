@@ -1,0 +1,65 @@
+<table valign=top border=1>
+    <tr>
+        <td colspan=2 align=left>
+            <h1>Liste d'événements</h1>
+        </td>
+        <td colspan=3 align=right>
+            <%= link_to 'New event', new_event_path %>
+        </td>
+    </tr>
+    <% @events.each do |event| %>
+    <!--
+    <div class="event_item">
+    <div class="event_date">
+    <div class="event_date_from">
+    <div class="event_date_bigday">
+    <%=h event.datetime.day %>
+    </div>
+    <div class="event_date_bigmonth">
+    <%=h month_to_string(event.datetime.month,true)  %>
+    </div>
+    <div class="event_date_bigday">
+    <%=h  event.datetime.year %>
+    </div>
+    </div>
+    <div class="event_date_to">
+    </div>
+    </div>
+    </div>
+    -->
+    <tr valign=top>
+        <td rowspan=2 background="/images/date.png" width=80px height=auto style="text-align:center; background-repeat:no-repeat;">
+            <P>
+                <span class="event_date_bigday"><%=h event.datetime.day %>
+                </span>
+            </P>
+            <P>
+                <span class="event_date_bigmonth"><%=h month_to_string(event.datetime.month,true) %>
+                </span>
+            </P>
+            <P>
+                <span class="event_date_bigyear"><%=h event.datetime.year %>
+                </span>
+            </P>
+        </td>
+        <td height=auto >
+            <span class="event_title"><%=h event.name %></span>
+        </td><td>
+            <%= link_to 'Show', event %>
+        </td>
+        <td>
+            <%= link_to 'Edit', edit_event_path(event) %>
+        </td>
+        <td>
+            <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+    </tr>
+    <tr>
+        <td colspan=4>
+            <span class="event_description"><%=h event.description %></span>
+        </td>
+        
+    </tr>
+    <% end %>
+</table>
+<br/>

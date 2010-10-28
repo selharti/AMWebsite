@@ -1,0 +1,23 @@
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0"> 
+	<tr style="width=30em">
+	    <td  align=left>
+	        <h2>Liste de nouvelles</h2>
+	    </td>
+		<%= crud_link_to_withTD('new', new_news_item_path, '', 2, 'crud_Add_td') %>
+	</tr>
+	<% rownum = 0 %>
+    <% @news.each do |news_item| %>
+	<% rownum = rownum  + 1 %>
+    <tr valign=top 	 <%=h row_alternate_style(rownum)%> >
+		<td><p>
+		  <%=h news_item.datetime.to_date %>  <b><%=h news_item.title %></b>
+		</p>
+		<p>
+		 <%= news_item.body %>
+		</p>
+		</td>
+		<%=crud_link_to_withTD('edit', edit_news_item_path(news_item), news_item, 1, 'crud_Edit_Delete_td') %>
+        <%=crud_link_to_withTD('delete', nil, news_item_path(news_item), 1, 'crud_Edit_Delete_td') %>
+		</tr>
+	<% end %>
+</TABLE>

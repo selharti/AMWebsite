@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>Agile Maroc - Groupe d'utilisateurs</title>
+  <%= stylesheet_link_tag "depot", :media => "all" %>
+</head>
+
+<body id="store">
+  <div id="banner">
+    <%= image_tag("logotmp.jpg")  %>
+    <%= @page_title || "Agile Maroc - Groupe d'utilisateurs" %>
+  </div>
+  <div id="socialNetworks" align=right>
+  	<a  target=new href="http://www.linkedin.com/groups?home=&gid=2798262&trk=anet_ug_hm">
+  		<img src="images/linkedin.png"
+  	</a> 
+	<a target=new href="http://www.twitter.com">
+  		<img src="images/twitter.png"/>
+  	</a> 
+	</div>
+  <div id="menu">
+		<a href="/welcome">Bienvenue</a>
+		<a href="/events" >Evenements</a>
+		<a href="/news"   >Nouvelles</a>
+		<a href="History">Historique</a>
+		<a href="/contact">Contactez-nous</a>	
+  </div> 
+  <div id="columns">
+    <div id="main">
+    	<p style="color: green"><%= flash[:notice] %></p>
+      <%= yield :layout %>
+	  <%= javascript_include_tag :defaults %>
+    </div>
+  </div>
+</body>
+</html>
+

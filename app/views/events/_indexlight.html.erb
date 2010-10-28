@@ -1,0 +1,31 @@
+<TABLE width="96%" border="0" cellspacing="0" cellpadding="0"> 
+	<tr style="width=5em">
+	    <td  align=left>
+			<span class="blockTitleAnnex">Événements</span>
+	    </td>
+	</tr>
+	<% rownum = 0 %>
+	<% @events = Event.all(:limit =>3, :conditions => "datetime >= #{Date.today}", :order => "datetime" )%>
+    <% @events.each do |event| %>
+	<% rownum = rownum  + 1 %>
+	<tr valign=top 	 <%=h row_alternate_style(rownum)%> >
+			<td width=auto style="padding-left:2px">	
+			<% link_to(event)  do %>
+				<%=h event.name  %> 
+			<% end %>	
+        </td>
+    </tr>
+	    <tr valign=top 	 <%=h row_alternate_style(rownum)%> >
+		<td align=right width=auto style="padding-right:2px">
+			<span  style="text-align:right;"> <%=h event.datetime.to_date%></span>
+        </td>
+    </tr>
+
+    <% end %>
+		    <td  align=right>
+			<% link_to("/events")  do %>
+				<span _class="blockTitleAnnex">Voir plus ...>> </span>
+			<% end %>
+	    </td>
+</table>
+<br/>

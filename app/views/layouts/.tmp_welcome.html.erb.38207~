@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheets/depot.css"/>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div style="float:left;" ><img src="images/AMLogo_tw.png" /></div>
+				<div style="float:left; font: small-caps 35px / 62px 'Times New Roman', serif">- Agile Maroc -</div>
+				<br clear="left" /> 
+            </div>
+            <div class="left">
+                <p>
+                    left left left left left left left left left left left left left left left 
+					left left left 
+					left left left 
+					left 
+                </p>
+            </div>
+            <div class="content">
+                <h2>Free Web Building Tutorials</h2>
+                <p>
+                    At W3Schools you will find all the Web-building tutorials you need,
+                    from basic HTML and XHTML to advanced XML, XSL, Multimedia and WAP.
+                </p>
+                <p>
+                    W3Schools - The Largest Web Developers Site On The Net!
+                </p>
+            </div>
+            <div class="right">
+                <p>
+                    Right Right Right Right Right Right Right Right Right Right Right 
+					Right Right Right Right 
+					Right Right Right 
+					Right 
+                </p>
+            </div>
+			<br clear="left" /> 
+            <div class="footer">Copyright ©2010, Agile Maroc</div> </div> </body> </html> 
