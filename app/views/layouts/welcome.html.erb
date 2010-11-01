@@ -13,9 +13,9 @@
                 	<!-- %= welcome_connect % -->
 					<% if user_signed_in? %>
 						Bienvenue <%= current_user.email %>
-						| <%= link_to "sign out", destroy_user_session_path %> 
+						| <%= link_to t("sign_out"), destroy_user_session_path %> 
 					<% else %>
-						<%= link_to "sign up", new_user_registration_path  %> | or <%= link_to "sign in", new_user_session_path %>  
+						<%= link_to t("sign_up"), new_user_registration_path  %> | <%= link_to t("sign_in"), new_user_session_path %>  
 					<% end  %>
 					
                     | <a href="/langage">langue</a>

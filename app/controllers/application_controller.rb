@@ -4,7 +4,9 @@
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  
+    
+    layout "welcome"
+    
   def initialize
     @page_title = "Agile Maroc" 
     @page_title_slogon ="Pour un échange d'expertise sur les approches agiles de développement logiciel au Maroc."
@@ -40,3 +42,8 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+#
+#class DeviseController::DeviseFeaturesController
+#    layout "welcome" 
+#  
+#end

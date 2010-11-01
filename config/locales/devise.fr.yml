@@ -1,0 +1,42 @@
+fr:
+  remember_me: "Se rappeller de moi"
+  sign_in: 'Se connecter'
+  sign_out: "Se déconnecter"
+  sign_up: "S'enregistrer"
+  
+  devise:
+    sessions:
+      link: 'Se connecter'
+      signed_in: 'Connexion réussie.'
+      signed_out: 'Déconnexion réussie.'
+      unauthenticated: 'Vous devez vous connecter avant de continuer.'
+      unconfirmed: 'Vous devez confirmer votre compte avant de continuer.'
+      locked: 'Votre compte est verrouillé.'
+      invalid: 'courriel ou mot de passe invalide.'
+      invalid_token: "Ticket d’authentification invalide."
+      timeout: "Votre session est expirée, s'il vous plait, reconnectez-vous pour continuer."
+      inactive: "Votre compte n'a pas encore été activé."
+      
+    passwords:
+      link: 'Mot de passe oublié?'
+      send_instructions: 'Vous allez recevoir un courriel avec les instructions pour réinitialiser votre mot de passe en quelques minutes.'
+      updated: 'Votre mot de passe a été changé avec succès. Vous êtes maintenant connecté.'
+    confirmations:
+      link: "Vous n'avez pas reçu les instructions de confirmation?"
+      send_instructions: 'Vous allez recevoir un courriel avec les instructions pour confirmer votre compte en quelques minutes.'
+      confirmed: 'Votre compte a été confirmé avec succès. Vous êtes maintenant connecté.' 
+    registrations:
+      link: "S'enregistrer"
+      signed_up: 'Vous vous êtes inscrit avec succès.'
+      updated: 'Vous avez mis à jour votre compte avec succès.'
+      destroyed: 'Bye! Votre compte a été annulé avec succès. Nous espérons vous revoir bientôt.'
+    unlocks:
+      link: "Vous n'avez pas reçu les instructions de déverrouillage?"
+      send_instructions: 'Vous allez recevoir un courriel avec les instructions pour déverrouiller votre compte en quelques minutes.'
+      unlocked: 'Votre compte a été déverrouillé avec succès. Vous êtes maintenant connecté.' 
+    mailer:
+      confirmation_instructions: 'Instructions de confirmation'
+      reset_password_instructions: 'Instructions de réinitialisation de mot de passe'
+      unlock_instructions: 'Instructions de déverrouillage'
+
+    
