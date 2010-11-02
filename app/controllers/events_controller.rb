@@ -33,18 +33,18 @@ class EventsController < ApplicationController
   
   def register
     # link the user to the event
-    #get the member from the session
-    @member = session[:member]
+    #get the user from the session
+    @user = current_user ##session[:user]
     # get the event  
     @event = Event.find(params[:id])
-    @event.register_member(@member)
+    @event.register_user(@user)
     redirect_to(:action => :index)
   end
   def unregister
-    @member = session[:member]
+    @user = current_user # session[:member]
     # get the event  
     @event = Event.find(params[:id])
-    @event.unregister_member(@member)
+    @event.unregister_user(@user)
     redirect_to(:action => :index)
   end
   

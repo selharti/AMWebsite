@@ -1,8 +1,8 @@
 module EventsHelper
   
   #register  unregister a member
-  def registerUnregister (event, member)
-    if member != nil and event.is_member_registred(member) 
+  def registerUnregister (event, user)
+    if user != nil and event.is_user_registred(user) 
       "Vous êtes déjà<br>enregistré #{link_to 'se désinscrire', :action => :unregister, :id => event}"
     else
       link_to "s'inscrire", :action => :register, :id => event

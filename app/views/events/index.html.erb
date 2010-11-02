@@ -22,7 +22,7 @@
 			</span>
         </td>
         <td style="text-align:right;"><%=h h_price(event.price) %><br>
-			<%= registerUnregister(event, session[:member] || nil ) %>
+			<%= registerUnregister(event, current_user || nil ) %>
         </td>
 		
 		<%=crud_link_to_withTD('edit', event, nil, 1, 'crud_Edit_Delete_td') %>
