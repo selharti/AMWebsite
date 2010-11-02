@@ -2,10 +2,17 @@ module EventsHelper
   
   #register  unregister a member
   def registerUnregister (event, user)
-    if user != nil and event.is_user_registred(user) 
-      "Vous êtes déjà<br>enregistré #{link_to 'se désinscrire', :action => :unregister, :id => event}"
+    if user != nil 
+      if event.is_user_registred(user) 
+        "Vous êtes déjà<br>enregistré #{link_to 'se désinscrire', :action => :unregister, :id => event}"
+      else
+        link_to "s'inscrire", :action => :register, :id => event
+      end
     else
-      link_to "s'inscrire", :action => :register, :id => event
+      #link_to "s'inscrire", :action => :register, :id => event
+    #  link_to t('devise.sessions.link'), new_session_path(event)
+    link_to t("sign_in"), new_user_session_path 
+      #redirect_to :conrtoller => "User", :action => "sign_in"  # request.request_uri) #, :path => "users/sign_in"
     end
   end
   

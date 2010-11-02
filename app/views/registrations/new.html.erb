@@ -2,14 +2,44 @@
 
 <% form_for resource_name, resource, :url => registration_path(resource_name) do |f| -%>
   <%= f.error_messages %>
-  <p><%= f.label User.human_attribute_name('email') %><br/>
-  <%= f.text_field :email %></p>
+  <p><%= f.label User.human_attribute_name('email') %><br/> 
+  <%= f.text_field :email %>( Servira d'identifiant pour vous connectez ) </p>
 
   <p><%= f.label User.human_attribute_name('password') %><br/>
   <%= f.password_field :password %></p>
 
   <p><%= f.label User.human_attribute_name('password_confirmation') %><br/>
    <%= f.password_field :password_confirmation %></p>
+  <p>
+    <%= f.label User.human_attribute_name('firstname')%><br />
+    <%= f.text_field :firstname  %>
+  </p>
+  <p>
+    <%= f.label User.human_attribute_name('lastname') %><br />
+    <%= f.text_field :lastname %>
+  
+  </p>
+   <p>
+    <%= f.label User.human_attribute_name('title') %><br />
+    <%= f.text_field :title %>
+  </p>   
+  <p>
+    <%= f.label User.human_attribute_name('organization') %><br />
+    <%= f.text_field :organization  %>
+  </p>
+  <p>
+    <%= f.label User.human_attribute_name('city') %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label User.human_attribute_name('state') %><br />
+    <%= f.text_field :state %>
+  </p>  
+  <p>
+    <%= f.label User.human_attribute_name('country') %><br />
+    <%= f.text_field :country %>
+  </p>
+
 
     <p><%= f.submit t('sign_up') %></p>
 <% end -%>

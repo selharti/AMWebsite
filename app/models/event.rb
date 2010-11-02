@@ -5,23 +5,25 @@ class Event < ActiveRecord::Base
   def to_s
     "#{self.name}, (#{self.datetime})" 
   end
+  
   def register_user(user)
-    if !is_user_registred(user) 
-      users << user
+    if user != nil
+      if !is_user_registred(user) 
+        users << user
+      end
     end
   end
   def unregister_user(user)
-    users.delete(user)
+    if user != nil
+      users.delete(user)
+    end
   end  
   
   def is_user_registred(user)
-   condition = "user_id = #{user.id}" 
-   res = users.count(:conditions => condition)
-   res > 0 
-    
+    if user != nil
+      condition = "user_id = #{user.id}" 
+      res = users.count(:conditions => condition)
+      res > 0 
+    end
   end
 end
-
-
-
-

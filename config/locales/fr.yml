@@ -131,6 +131,15 @@ fr:
         email: "Courrielxx"
         password: "Mot de passexx"
         password_confirmation: "Confirmation mot de passe"
+        firstname: Prénom
+        lastname: "Nom de famille"
+        title: Titre
+        organization: "Organisation / Compagnie" 
+        city: Ville
+        state: Province
+        country: Pays
+        note: Note
+        is_admin: Administrateur
         
     errors:
       template:
