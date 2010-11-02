@@ -1,7 +1,9 @@
 class NewsController < ApplicationController
    layout "welcome" 
   #helper :date_format
-  #  before_filter :authorize_admin, :except =>[:index, :show, :register, :unregister] 
+  #before_filter :authorize_admin, :except =>[:index, :show, :register, :unregister]
+  before_filter :authenticate_user_admin , :except =>[:index, :show]
+
   #  before_filter :authorize, :only =>[:register, :unregister] 
   before_filter :initVars
   

@@ -4,6 +4,16 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/main.css"/>
     </head>
     <body>
+<script type="text/javascript">
+ var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16786107-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>    	
         <div id="container">
             <div id="header">
                 <div id="header_img">
@@ -12,7 +22,7 @@
                 <div id="smallmenu">
                 	<!-- %= welcome_connect % -->
 					<% if user_signed_in? %>
-						<%= "#{t('connected_welcome')} #{current_user.email}" %>
+						| <%= "#{t('connected_welcome')} #{current_user.email}" %>
 						| <%= link_to t("sign_out"), destroy_user_session_path %> 
 					<% else %>
 						<%= link_to t("sign_up"), new_user_registration_path  %> | <%= link_to t("sign_in"), new_user_session_path %>  
@@ -40,14 +50,14 @@
 					<%= link_to(t('Contact_us'), '/messages/new') %>
                 </div>
                 <div id="SocialFollow">
-                    <!-- Start SocialFollow.com Button Code --><!-- desactivated for dev
+                    <!-- Start SocialFollow.com Button Code -->
                     <img src="http://www.socialfollow.com/button/image/?b=6060" class="socialFollowImage" alt="Follow Me!" />
                     <script type="text/javascript" src="http://www.socialfollow.com/button/?b=6060">
                     </script>
                     <script type="text/javascript">
                     socialfollow.init("socialFollowImage");
                     </script>
-                    --><!-- End SocialFollow.com Button Code -->
+                    <!-- End SocialFollow.com Button Code -->
                 </div>
             </div>
             <div id="middle">
@@ -67,13 +77,13 @@
                 <div id="sponsorL1Img">
                     <a href="http://www.drivedestinyX.com"><img src="/images/DriveDestinyeX.png" height=70 width=70 border=none /></a>
                 </div>
-                <div id="sponsorL1Name">
+                <div id="sponsorL1Name" visibility=false>
                     <a href="http://www.drivedestinyX.com">Drive Destiny eXperience</a>
                 </div>
             </div>
             <div id="footer">
                 <div id="share">
-                    <!-- AddToAny BEGIN --><!-- desactivated for dev
+                    <!-- AddToAny BEGIN -->
                     <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=MuURL&amp;linkname=MuPage"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
                     <script type="text/javascript">
                     var a2a_config = a2a_config || {};
@@ -82,7 +92,7 @@
                     </script>
                     <script type="text/javascript" src="http://static.addtoany.com/menu/page.js">
                     </script>
-                    --><!-- AddToAny END -->
+                    <!-- AddToAny END -->
                 </div>
                 <div id="footerCR">
                     Copyright ©2010, Agile Maroc. All Rights Reserved.

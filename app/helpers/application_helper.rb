@@ -5,7 +5,9 @@ module ApplicationHelper
   
   # CRUD Links
   def crud_link_to(path, image, options=nil)
-    link_to(image_tag(image, :size => "20x20", :border => 0), path, options) #unless h_currentUser == nil || !h_currentUser.is_administrator
+    if current_user != nil and current_user.is_admin != nil and current_user.is_admin
+      link_to(image_tag(image, :size => "20x20", :border => 0), path, options) unless current_user == nil || !current_user.is_admin
+    end
   end
   # CRUD - new
   def crud_link_to_add(new_item_path)
@@ -22,7 +24,7 @@ module ApplicationHelper
   
   def crud_link_to_withTD(adtion, path, item, span, styleclass)
   # if h_currentUser != nil and  h_currentUser.is_administrator
-  if user_signed_in?
+  if user_signed_in? and current_user.is_admin != nil and current_user.is_admin
     res = "<td colspan=#{span} class=#{styleclass}>" 
     res += case adtion
       when 'new' then "#{crud_link_to(path , '/images/crud-add.png' )}" 
@@ -48,7 +50,7 @@ module ApplicationHelper
   # secured link
 
   def secured_link_to(label, path)
-   link_to(label, path) unless !user_signed_in? || !current_user.is_admin #
+ "| #{link_to(label, path)}" unless !user_signed_in? || !current_user.is_admin #
    # link_to(label, path) unless h_currentUser == nil || !h_currentUser.is_administrator
    #link_to(image_tag(image, :size => "30x30", :border => 0), path, options) unless h_currentUser == nil || !h_currentUser.is_administrator
   end

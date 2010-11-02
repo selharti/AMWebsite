@@ -1,11 +1,12 @@
-<h1>Event: <%=h @event.name %></h1>
-<%= link_to 'Edit', edit_event_path(@event) %>
-|<%= link_to 'Back', events_path %>
-| <% if current_user != nil and @event.is_user_registred (current_user) %>
-Vous êtes déjà enregistré pour cet événement<%= button_to 'Unregister', :action => :unregister, :id => @event.id %>
-<% else %>
-<%= button_to 'Register', :action => :register, :id => @event.id %>
-<% end %>
+<h1><%= t('Event') %>: <%=h @event.name %></h1>
+<%= secured_link_to t('Edit'), edit_event_path(@event) %>
+| <%= link_to t('Back'), events_path %>
+<!-- | < % if current_user != nil and @event.is_user_registred (current_user) % >
+Vous êtes déjà enregistré pour cet événement< %= link_to t('Unregister'), :action => :unregister, :id => @event.id % >
+< % else %>
+<!-- | % = link_to t('Register'), :action => :register, :id => @event.id % -->
+| <%= registerUnregister(@event, current_user || nil ) %>
+<!-- % end % -->
 <table valign=top>
     <tr>
         <td>
@@ -23,7 +24,7 @@ Vous êtes déjà enregistré pour cet événement<%= button_to 'Unregister', :a
             </p>
             <p>
                 <b>Description:</b>
-                <%=h @event.description %>
+                <%= @event.description %>
             </p>
         </td>
         <td>
@@ -31,10 +32,12 @@ Vous êtes déjà enregistré pour cet événement<%= button_to 'Unregister', :a
             <%=h h_price(@event.price) %>
         </td>
     </tr>
-	<tr><td colspan=3 >Assistance: <%=h @event.users.count%></td></tr>
-	<tr><td colspan=3 >
-		<%for @user in @event.users %>
-		<%=h @user.to_s  %> |
-		<% end %> </td>
-	</tr>
+	<%- if current_user != nil && current_user.is_admin %>
+		<tr><td colspan=3 >Assistance: <%=h @event.users.count%></td></tr>
+		<tr><td colspan=3 >
+			<%for @user in @event.users %>
+			<%=h @user.to_s  %> |
+			<% end %> </td>
+		</tr>
+		<% end -%>
 </table>

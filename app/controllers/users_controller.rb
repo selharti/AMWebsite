@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   #  before_filter :authorize_admin
  # before_filter :authenticate_user!
   before_filter :initVars 
-  #before_filter :authenticate_user_admin #, :except =>[:index, :show, :register, :unregister]
+  before_filter :authenticate_user_admin #, :except =>[:index, :show, :register, :unregister]
   # GET /members
   # GET /members.xml
   def index

@@ -1,5 +1,5 @@
 <h2><%= t('sign_in')%> </h2>
-
+<%= render :partial => "shared/devise_links" %>
 <% form_for resource_name, resource, :url => session_path(resource_name) do |f| -%>
   <%= f.error_messages %>
   <p><%= User.human_attribute_name("email") %>  <br/>
@@ -15,4 +15,3 @@
   <p><%= f.submit t('sign_in') %></p>
 <% end -%>
 
-<%= render :partial => "shared/devise_links" %>

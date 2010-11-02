@@ -5,7 +5,11 @@ fr:
   email: "Courriel"
   password: "Mot de passe"
   password_confirmation: "Confirmation mot de passe"
-          
+  Back: "Retourner à la liste"
+  Edit: Edditer   
+  Register: "S'inscrire"
+  Unregister: "Se désinscrire"
+  
   #Menu
   welcome: Acceuil
   User: Utilisateur
@@ -17,7 +21,8 @@ fr:
   Messages: Messages
   Contact_us: "Contactez nous"
   connected_welcome: Bienvenue
-  SPONSORS: COMMENDITAIRES 
+  SPONSORS: SPONSORS 
+  #COMMENDITAIRES 
   
   date:
     formats:
@@ -128,8 +133,8 @@ fr:
   activerecord:
     attributes:
       user:
-        email: "Courrielxx"
-        password: "Mot de passexx"
+        email: "Courriel"
+        password: "Mot de passe"
         password_confirmation: "Confirmation mot de passe"
         firstname: Prénom
         lastname: "Nom de famille"
@@ -171,7 +176,7 @@ fr:
         #added
       models:
       # For example,
-        user: "Utilisateurzzzz"
+        user: "Utilisateur"
         event: Événement
         news_item: Nouvelle
         news: Nouvelles
