@@ -2,15 +2,12 @@ class EventsController < ApplicationController
   
   layout "welcome" 
   helper :date_format
-   # before_filter :authorize_admin, :except =>[:index, :show, :register, :unregister] 
-   # before_filter :authorize, :only =>[:register, :unregister] 
-before_filter :authenticate_user!, :except =>[:index, :show, :register, :unregister] 
-
- def initialize
-   super
-   @section = "Événements"
- end
-
+  # before_filter :authorize_admin, :except =>[:index, :show, :register, :unregister] 
+  # before_filter :authorize, :only =>[:register, :unregister] 
+  before_filter :authenticate_user!, :except =>[:index, :show, :register, :unregister] 
+  before_filter :initVars 
+  
+  
   # GET /events
   # GET /events.xml 
   def index
@@ -33,7 +30,7 @@ before_filter :authenticate_user!, :except =>[:index, :show, :register, :unregis
     end
   end
   ## Regsiter 2010-10-04
-
+  
   def register
     # link the user to the event
     #get the member from the session
@@ -73,7 +70,7 @@ before_filter :authenticate_user!, :except =>[:index, :show, :register, :unregis
       format.xml  { render :xml => @event }
     end
   end
-
+  
   
   
   # GET /events/1/edit
@@ -126,6 +123,10 @@ before_filter :authenticate_user!, :except =>[:index, :show, :register, :unregis
       format.xml  { head :ok }
     end
   end
-  
+private  
+  def initVars
+    #super
+    @section = t("Events")
+  end
   
 end

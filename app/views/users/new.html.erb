@@ -1,0 +1,104 @@
+<h1>Inscription</h1>
+
+<% form_for(@user) do |f| %>
+<table>
+	<tr>
+		<td height=auto colspan=2 style="font-style:italic; font-size:small; color:red;">
+			<%= f.error_messages %>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;">
+			Nom:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :lastname %>
+		</td>
+	</tr>
+		<tr>
+		<td style="text-align:right;">
+			Prénom:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :firstname %>
+		</td>
+	</tr>
+		<tr>
+		<td style="text-align:right;">
+			Compagnie / Organisation:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :company_name %>
+		</td>
+	</tr>
+		<tr>
+		<td valign=top style="text-align:right; ">
+			Compagnie / Organisation adresse:
+		</td>
+		<td style="text-align:left; height:30px">
+			<%= f.text_area :company_address, :rows => "5", :cols  => "25" %>
+		</td>
+	</tr>
+		<tr>
+		<td style="text-align:right;">
+			Fonction:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :function %>
+		</td>
+	</tr>
+		<tr>
+		<td style="text-align:right;">
+			Téléphone bureau:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :phone_office %>
+		</td>
+	</tr>		<tr>
+		<td style="text-align:right;">
+			Téléphone cellulaire:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :phone_cell %>
+		</td>
+	</tr>	<tr>	<td style="text-align:right;">
+			Téléphone domicile:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :phone_home %>
+		</td>
+	</tr>		
+	
+	<tr style="border-top:`1px double`">	<td style="text-align:right;">
+			eMail:
+		</td>
+		<td style="text-align:left;">
+			<%=  f.text_field :email  %> (servira de login pour votre compte)
+		</td>
+	</tr>		<tr >	<td style="text-align:right;">
+			 Mot de passe:
+		</td>
+		<td style="text-align:left;">
+			<%= f.password_field :password, :size => 40 %> 
+		</td>
+	</tr>		<tr >	<td style="text-align:right;">
+			 Confirmation mot de passe:
+		</td>
+		<td style="text-align:left;">
+			 <%= f.password_field :password_confirmation, :size => 40 %> 
+		</td>
+	</tr>
+</table>
+
+    <!--
+  <p>
+    <%= f.label :note %><br />
+    <%= f.text_area :note%>
+  </p>
+  -->
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', users_path %>

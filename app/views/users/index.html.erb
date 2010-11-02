@@ -1,0 +1,67 @@
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0"> 
+<tr>
+        <td align="left" colspan="3">
+            <h1>Liste des users</h1>
+        </td>
+        <td class="crud_Add_td" colspan="2"> 
+            
+			<!-- <a action="/users/new" href="/users"><img height="30" border="0" width="30" src="/images/crud-add.png?1286910116" alt="Crud-add"></a> -->
+			<%= crud_link_to_add(new_user_path) %> 
+        </td> 
+
+<!-- <table valign=top border=1 width=180px>
+    <tr>
+        <td colspan=3 align=left>
+            <h1>Liste des users</h1>
+        </td>
+        <td colspan=3 class="crud_Add_td">
+            <%= crud_link_to_add(new_user_path) %>
+        </td>
+    </tr>
+	-->
+    <tr style="font-weight:bold;">
+        <td>
+            Nom, Prénom
+        </td>
+        <td>
+            Compagnie / Organisation
+        </td>
+        <td>
+            Titre
+        </td>
+        <td>
+            Is admin
+        </td>        
+		<td colspan=3>
+        </td>
+    </tr>
+    <% rownum = 0 %>
+	<% @users.each do |user| %>
+	<% rownum = rownum  + 1 %>
+    <tr valign=top
+	 <%=h row_alternate_style(rownum)%>
+		>
+        <td height=auto>
+            <% link_to(user)  do %>
+            <%=h user.to_s  %>(<%=h user.email  %>)
+            <% end %>
+        </td>
+        <td height=auto>
+            <span _class="event_title"><%=h user.organization %></span>
+        </td>
+        <td height=auto>
+            <span _class="event_title"><%=h user.title %></span>
+        </td>
+        <td height=auto>
+            <span _class="event_title"><%=h user.is_admin %></span>
+        </td>       
+		<td class="crud_Edit_Delete_td">
+			<%= crud_link_to_edit(edit_user_path(user) ) %> 
+        </td>
+        <td class="crud_Edit_Delete_td">
+			<%= crud_link_to_delete(user ) %> 
+        </td>
+    </tr>
+    <% end %>
+</table>
+<br/>

@@ -1,10 +1,6 @@
 class MessagesController < ApplicationController
- layout "welcome" 
-  def initialize
-   super
-   @section = "Messages"
- end
-
+ # layout "welcome" 
+before_filter :initVars
  ## =================
    def index
     @messages = Message.all
@@ -88,6 +84,12 @@ class MessagesController < ApplicationController
     end
   end
   
- 
+ private
+def initVars
+   #super
+   @section = t("Message")
+ end
+
+
  ## =============
 end

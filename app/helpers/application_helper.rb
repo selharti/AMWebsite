@@ -48,7 +48,7 @@ module ApplicationHelper
   # secured link
 
   def secured_link_to(label, path)
-   link_to(label, path) unless user_signed_in?
+   link_to(label, path) unless !user_signed_in? || !current_user.is_admin #
    # link_to(label, path) unless h_currentUser == nil || !h_currentUser.is_administrator
    #link_to(image_tag(image, :size => "30x30", :border => 0), path, options) unless h_currentUser == nil || !h_currentUser.is_administrator
   end

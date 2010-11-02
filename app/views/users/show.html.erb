@@ -1,0 +1,43 @@
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+
+<% form_for(@user) do |f| %>
+<table valign=top>
+	<tr>
+  <td>
+  	<p>
+    <%= f.label :lastname %><br />(Nom de famille): <%= @user.lastname %>
+  </p>
+  <p>
+    <%= f.label :firstname %><br /> (Prénom):  <%= @user.firstname %>
+  </p>
+   <p>
+    <%= f.label :title %>Titre: <%= @user.title %>
+  </p>
+  <p>
+    <%= f.label :organization %>(Compagnie/Organisation): <%= @user.organization %>
+  </p>
+  <p>
+    Ville: <%= @user.city %>
+	
+  </p>
+  <p>
+    province: <%= @user.state %>
+	
+  </p>   <p>
+    Pays: <%= @user.country%>
+	
+  </p>
+  </p>   <p>
+    <%= f.label :is_admin%>: <%= @user.is_admin%>
+	
+  </p>
+  </td>
+</tr>	
+		</td>
+
+	</tr>
+</table>
+
+<% end %>

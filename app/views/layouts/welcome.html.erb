@@ -12,7 +12,7 @@
                 <div id="smallmenu">
                 	<!-- %= welcome_connect % -->
 					<% if user_signed_in? %>
-						Bienvenue <%= current_user.email %>
+						<%= "#{t('connected_welcome')} #{current_user.email}" %>
 						| <%= link_to t("sign_out"), destroy_user_session_path %> 
 					<% else %>
 						<%= link_to t("sign_up"), new_user_registration_path  %> | <%= link_to t("sign_in"), new_user_session_path %>  
@@ -33,11 +33,11 @@
             <!--                 <br clear="left" />-->
             <div>
                 <div id="menu">
-                    <%= link_to('Acceuil', '/welcome') %>
-                    <%= link_to('Événements', '/events') %>
-                    <%= link_to('Nouvelles', '/news') %>
-                    <%= secured_link_to('Membres', '/members') %>
-					<%= link_to('Contactez-nous', '/messages/new') %>
+                    <%= link_to(t('welcome'), '/welcome') %>
+                    <%= link_to(t('Events'), '/events') %>
+                    <%= link_to(t('News'), '/news') %>
+                    <%= secured_link_to(t('Users'), '/users') %>
+					<%= link_to(t('Contact_us'), '/messages/new') %>
                 </div>
                 <div id="SocialFollow">
                     <!-- Start SocialFollow.com Button Code --><!-- desactivated for dev
@@ -58,7 +58,7 @@
             </div>
             <div id="sponsors">
                 <div id="SponsorsVerticalLabel">
-                    SPONSORS
+                    <%= t("SPONSORS") %>
                 </div>
                 <div id="sponsorL1Img">
                     <a href="http://www.drivedestinyX.com"><img src="/images/DriveDestinyeX.png" height=70 width=70 border=none /></a>
@@ -86,6 +86,7 @@
             </div>
             <div id="underfooter">
                 Site conçu et maintenu gracieusement par: <a href="http://www.drivedestinyX.com">Drive Destiny eXperience Inc.</a>
+				Hébergé gracieusement par: <a href="http://www.cekoya.com/?utm_source=agilemaroc&utm_medium=web&utm_campaign=awareness">Cekoya Informatique.</a>
             </div>
         </div>
     </body>
