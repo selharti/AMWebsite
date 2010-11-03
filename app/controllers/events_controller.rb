@@ -2,11 +2,8 @@ class EventsController < ApplicationController
   
   layout "welcome" 
   helper :date_format
-  # before_filter :authorize_admin, :except =>[:index, :show, :register, :unregister] 
-  # before_filter :authorize, :only =>[:register, :unregister] 
   before_filter :authenticate_user_admin, :except =>[:index, :show, :register, :unregister] 
   before_filter :initVars 
-  
   
   # GET /events
   # GET /events.xml 
@@ -17,20 +14,16 @@ class EventsController < ApplicationController
       format.xml  { render :xml => @events }
     end
   end
-  
-  def bonjour
-    render :text => "Bonjoooooour"
-  end
-  
+ 
   def self.indexlight
     @events = Event.all(:conditions => "datetime >= #{Date.today}", :order => "datetime" )
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @events }
     end
   end
+
   ## Regsiter 2010-10-04
-  
   def register
     # link the user to the event
     #get the user from the session
@@ -70,9 +63,7 @@ class EventsController < ApplicationController
       format.xml  { render :xml => @event }
     end
   end
-  
-  
-  
+   
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
@@ -123,9 +114,9 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
 private  
   def initVars
-    #super
     @section = t("Events")
   end
   

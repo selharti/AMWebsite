@@ -1,8 +1,10 @@
 class MessagesController < ApplicationController
- # layout "welcome" 
-before_filter :initVars
- ## =================
-   def index
+  # layout "welcome" 
+  before_filter :authenticate_user_admin, :except =>[:new] 
+  before_filter :initVars
+  
+  ## =================
+  def index
     @messages = Message.all
     respond_to do |format|
       format.html # index.html.erb
@@ -84,12 +86,12 @@ before_filter :initVars
     end
   end
   
- private
-def initVars
-   #super
-   @section = t("Message")
- end
-
-
- ## =============
+  private
+  def initVars
+    
+    @section = t("Message")
+  end
+  
+  
+  ## =============
 end

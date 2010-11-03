@@ -20,8 +20,8 @@ module EventsHelper
   # Convert month to text
   def h_month_to_string(month, shortformat) 
     months=[ "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octore", "Novembre", "Décembre"]
-    if 0 < month and month < 13 
-      res = months[month] 
+    if 0 < month and month < 12 
+      res = months[month-1] 
     else
       res = "Invalide"
     end
