@@ -12,7 +12,7 @@ module EventsHelper
     else
       #link_to "s'inscrire", :action => :register, :id => event
     #  link_to t('devise.sessions.link'), new_session_path(event)
-    link_to t("sign_in"), new_user_session_path 
+    link_to t("sign_in_formEvent"), new_user_session_path 
       #redirect_to :conrtoller => "User", :action => "sign_in"  # request.request_uri) #, :path => "users/sign_in"
     end
   end

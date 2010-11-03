@@ -1,12 +1,7 @@
 <h1><%= t('Event') %>: <%=h @event.name %></h1>
 <%= secured_link_to t('Edit'), edit_event_path(@event) %>
 | <%= link_to t('Back'), events_path %>
-<!-- | < % if current_user != nil and @event.is_user_registred (current_user) % >
-Vous êtes déjà enregistré pour cet événement< %= link_to t('Unregister'), :action => :unregister, :id => @event.id % >
-< % else %>
-<!-- | % = link_to t('Register'), :action => :register, :id => @event.id % -->
 | <%= registerUnregister(@event, current_user || nil ) %>
-<!-- % end % -->
 <table valign=top>
     <tr>
         <td>

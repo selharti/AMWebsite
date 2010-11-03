@@ -1,54 +1,25 @@
-<!-- <h1>Bienvenue sur le site Agile Maroc</h1>
-Groupe des professionnels qui supportent les approches Agiles de développement Logiciels au Maroc.
--->
-
-                <div id="left">
-                					<%= render "/news/indexlight" %> 
-<!--                    <h3>Nouvelles</h3>
-                    <ul>
-                        <li>
-                            Creation du site web pour le groupe Agile Maroc
-                        </li>
-                        <li>
-                            Agile Maroc prepare le premier évènement sur l'Agilité au Maroc
-                        </li>
-                    </ul>
-					-->
-                </div>
-				
-                <div id="content">
-                    <span class="blockTitle">Bienvenue</span>
-                    <p>
-                        TEST - Agile Maroc est une organisation à but non lucratif qui vise à promouvoir et 
-						vulgariser les approches Agiles de développement. 
-						Un échange d'expertise sera bénéfique pour tout le monde et permettera 
-						de participer au développement du Maroc.
-						
-						
-                    </p>
-                    <p>
-                       NB: En permier lieu, les approches agiles ont étaient conçues pour répondre aux besoins 
-						en développement logiciels, mais des ouvertures vers d'autes domaines sont encours d'élaboration.
-                    </p>
-                </div>
-                <div id="right" _style="display: none">
-                    
-					<%= render "/events/indexlight" %> 
-					<!--< Events.indexlight >
-					<h3>Évènements</h3>
-					
-                    <ul>
-                        <li>
-                            Premier séminaire Agile Au Maroc
-                        </li>
-                        <li>
-                            Formation donnée par XXXY
-                        </li>
-                        <li>
-                            Rencontre mensuelle
-                        </li>
-                    </ul>-->
-                </div>
-
-
-
+<div id="left">
+    <%= render "/news/indexlight" %>
+</div>
+<div id="content">
+    <span class="blockTitle">Bienvenue</span>
+    <p>
+        Agile Maroc est une organisation à but non lucratif qui vise à promouvoir et 
+        vulgariser les approches Agiles de développement.  
+        Un échange d'expertise sera bénéfique pour tout le monde et permettera 
+        de participer au développement du Maroc.
+    </p>
+	<P>Agile Maroc est inscrit auprès des organisations <a href="http://www.agilealliance.org/resources/agile-user-groups">Agile Alliance</a> et <a href="http://www.scrumalliance.org/user_groups/95">Scrum Alliance</a>: <BR/>
+		<P align=center> <a href="http://www.agilealliance.org"><img src="/images/agile_alliance_logo.jpg" height=72 width=71 border=none /></a>
+		<a href="http://www.scrumalliance.org"><img src="/images/scrum_logo.png" height=60 width=200 border=none /></a>
+		</P>
+	</P>
+    <p>
+        NB: En permier lieu, les approches agiles ont été conçues pour répondre aux besoins 
+        en développement logiciels, mais des ouvertures vers d'autes domaines sont en cours d'élaboration.
+    </p>
+	
+</div>
+<div id="right" _style="display: none">
+    <%= render "/events/indexlight" %>
+</div>

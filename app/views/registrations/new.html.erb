@@ -1,9 +1,9 @@
-<h2><%= t('sign_up') %></h2>
+<h3><%= t('sign_up') %></h3>
 <%= render :partial => "shared/devise_links" %>
 <% form_for resource_name, resource, :url => registration_path(resource_name) do |f| -%>
   <%= f.error_messages %>
   <P><%= f.label User.human_attribute_name('email') %><br/> 
-  <%= f.text_field :email %>( Servira d'identifiant pour vous connectez ) 
+  <%= f.text_field :email %> ( Servira d'identifiant pour vous connectez ) 
 <br/>
   <%= f.label User.human_attribute_name('password') %><br/>
   <%= f.password_field :password %>
