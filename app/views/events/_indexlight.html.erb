@@ -1,11 +1,11 @@
-<TABLE width="96%" border="0" cellspacing="0" cellpadding="0"> 
+<div _style="border-top:1px solid gray"><TABLE width="96%" border="0" cellspacing="0" cellpadding="0"> 
 	<tr style="width=5em">
 	    <td  align=left>
 			<span class="blockTitleAnnex">Événements</span>
 	    </td>
 	</tr>
 	<% rownum = 0 %>
-	<% @events = Event.all(:limit =>3, :conditions => "datetime >= #{Date.today}", :order => "datetime" )%>
+	<% @events = Event.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )%>
     <% @events.each do |event| %>
 	<% rownum = rownum  + 1 %>
 	<tr valign=top 	 <%=h row_alternate_style(rownum)%> >
@@ -24,8 +24,9 @@
     <% end %>
 		    <td  align=right>
 			<% link_to("/events")  do %>
-				<span _class="blockTitleAnnex">Voir plus ...>> </span>
+				<span _class="blockTitleAnnex">Tous les événements</span>
 			<% end %>
 	    </td>
 </table>
-<br/>
+
+</div>

@@ -45,4 +45,7 @@ Rails::Initializer.run do |config|
   config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}')]
  # config.i18n.load_path += Dir.glob("#{RAILS_ROOT}/app/locales/**/*.{rb,yml}")
   config.i18n.default_locale = :fr
+ # http://www.methods.co.nz/rails_date_kit/rails_date_kit.html 
+ # ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(  :default => '%d %B %Y', :locale => 'fr' )
+  
 end

@@ -1,0 +1,3 @@
+EventMailer#confirm
+
+Find me in app/views/event_mailer/confirm.erb

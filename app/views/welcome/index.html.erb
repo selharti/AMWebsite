@@ -1,5 +1,6 @@
 <div id="left">
-    <%= render "/news/indexlight" %>
+    <!-- < = render "/events/indexlight"  > -->
+	<a href="/events/5"><img border=0 height="475" width="353" title="Premier Séminaire Agile Au Maroc 24 novembre 2010 de 13:30h" alt="Premier Séminaire Agile Au Maroc 24 novembre 2010 de 13:30h" src="/images/rabat.jpg"></a>
 </div>
 <div id="content">
     <span class="blockTitle">Bienvenue</span>
@@ -14,12 +15,15 @@
 		<a href="http://www.scrumalliance.org"><img src="/images/scrum_logo.png" height=60 width=200 border=none /></a>
 		</P>
 	</P>
-    <p>
-        NB: En permier lieu, les approches agiles ont été conçues pour répondre aux besoins 
+    <p >
+        <span style="font-size: small">Note: En permier lieu, les approches agiles ont été conçues pour répondre aux besoins 
         en développement logiciels, mais des ouvertures vers d'autes domaines sont en cours d'élaboration.
+		</span>
     </p>
 	
 </div>
 <div id="right" _style="display: none">
-    <%= render "/events/indexlight" %>
+    <%= render "/news/indexlight" %>
+	<div style="border-top:2px solid black"/>
+	<%= render "/events/indexlight" %>
 </div>

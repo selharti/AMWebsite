@@ -1,42 +1,48 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
     <head>
+        <title>Agile Maroc</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="Agile Maroc, Agile, Scrum, XP, lean,  Morocco, gestion projet, project management" />
+        <meta name="description" content="Agile Maroc" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="/stylesheets/main.css"/>
     </head>
     <body>
-<script type="text/javascript">
- var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-16786107-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>    	
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-16786107-1']);
+            _gaq.push(['_trackPageview']);
+            (function(){
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
         <div id="container">
             <div id="header">
                 <div id="header_img">
-                    <a href="/welcome"><img src="/images/AMLogo_tw.png" /></a>
+                    <a href="/welcome"><img border="0" src="/images/AMLogo_tw.png" /></a>
                 </div>
                 <div id="smallmenu">
-                	<!-- %= welcome_connect % -->
-					<% if user_signed_in? %>
-						| <%= "#{t('connected_welcome')} #{current_user.email}" %>
-						| <%= link_to t("sign_out"), destroy_user_session_path %> 
-					<% else %>
-						<%= link_to t("sign_up"), new_user_registration_path  %> | <%= link_to t("sign_in"), new_user_session_path %>  
-					<% end  %>
-					
+                    <!-- %= welcome_connect % --><% if user_signed_in? %>
+                    | <%= "#{t('connected_welcome')} #{current_user.email}" %>
+                    | <%= link_to t("sign_out"), destroy_user_session_path %>
+                    <% else %>
+                    <%= link_to t("sign_up"), new_user_registration_path %>| <%= link_to t("sign_in"), new_user_session_path %>
+                    <% end %>
                     <!-- | <a href="/langage">langue</a> -->
                 </div>
-                <div id="header_title" _style="font-size: 120%;  font-family: sans-serif;">
+                <div id="header_title" >
                     <%= @page_title || "Agile Maroc -Missing-" %>
-                    <div style="font-size: 30%; margin-top:-1.5em">
-                        <%= @page_title_slogon || "Agile Maroc slogon -Missing-" %>
-                    </div>
                 </div>
-                <div id="section">
+                <div id="header_title_slogon" style="">
+                    <%= @page_title_slogon || "Agile Maroc slogon -Missing-" %>
+                </div>
+                <div id="header_section_name">
                     <%= @section || "Section - Missing-" %>
                 </div>
             </div>
@@ -47,27 +53,30 @@
                     <%= link_to(t('Events'), '/events') %>
                     <%= link_to(t('News'), '/news') %>
                     <%= secured_link_to(t('Users'), '/users') %>
-					<%= link_to(t('Contact_us'), '/messages/new') %>
+                    <%= link_to(t('Contact_us'), '/messages/new') %>
                 </div>
                 <div id="SocialFollow">
-                    <!-- Start SocialFollow.com Button Code -->
-                    <img src="http://www.socialfollow.com/button/image/?b=6060" class="socialFollowImage" alt="Follow Me!" />
+                    <!-- Start SocialFollow.com Button Code --><img src="http://www.socialfollow.com/button/image/?b=6060" class="socialFollowImage" alt="Follow Me!" />
                     <script type="text/javascript" src="http://www.socialfollow.com/button/?b=6060">
                     </script>
                     <script type="text/javascript">
-                    socialfollow.init("socialFollowImage");
+                        socialfollow.init("socialFollowImage");
                     </script>
                     <!-- End SocialFollow.com Button Code -->
                 </div>
             </div>
             <div id="middle">
-                <p style="color: green">
-                    <%= flash[:notice] %>
-                </p>
-                <p style="color: red">
+                <%- if flash[:notice] != nil %>
+					<p style="color: green">
+                    	<%= flash[:notice] %>
+                	</p>
+				<% end -%>
+                <%- if flash[:alert] != nil || flash[:error] != nil %>
+				<p style="color: red">
                     <%= flash[:alert] %>
                     <%= flash[:error] %>
                 </p>
+				<% end -%>
                 <%= yield :layout %>
             </div>
             <div id="sponsors">
@@ -75,21 +84,19 @@
                     <%= t("SPONSORS") %>
                 </div>
                 <div id="sponsorL1Img">
-                    <a href="http://www.drivedestinyX.com"><img src="/images/DriveDestinyeX.png" height=70 width=70 border=none /></a>
-					<a href="http://www.emi.ma"><img src="/images/logo-EMI.jpg" height=70 width=70 border=none /></a>
+                    <img src="/images/DriveDestinyeX.png" height=70 width=70 border=none /><a href="http://www.emi.ma"><img src="/images/logo-EMI.jpg" height=70 width=70 border=none /></a>
                 </div>
                 <div id="sponsorL1Name" visibility=false>
-                    <a href="messages/new">Pour nous supporter, contactez nous</a>
+                    <a href="messages/new"> Vous voulez nous aider ou contribuer? Contactez-nous!</a>
                 </div>
             </div>
             <div id="footer">
                 <div id="share">
-                    <!-- AddToAny BEGIN -->
-                    <a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=MuURL&amp;linkname=MuPage"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
+                    <!-- AddToAny BEGIN --><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=MuURL&amp;linkname=MuPage"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
                     <script type="text/javascript">
-                    var a2a_config = a2a_config || {};
-                    a2a_config.linkname = "Agile Maroc";
-                    a2a_config.linkurl = "http://www.agilemaroc.org/welcome";
+                        var a2a_config = a2a_config || {};
+                        a2a_config.linkname = "Agile Maroc";
+                        a2a_config.linkurl = "http://www.agilemaroc.org/welcome";
                     </script>
                     <script type="text/javascript" src="http://static.addtoany.com/menu/page.js">
                     </script>
@@ -100,8 +107,8 @@
                 </div>
             </div>
             <div id="underfooter">
-                Site conçu et maintenu gracieusement par: <a href="http://www.drivedestinyX.com">Drive Destiny eXperience Inc.</a>
-				Hébergé gracieusement par: <a href="http://www.cekoya.com/?utm_source=agilemaroc&utm_medium=web&utm_campaign=awareness">Cekoya Informatique.</a>
+                Site conçu et maintenu gracieusement par: Drive Destiny eXperience Inc. 
+                Hébergé gracieusement par: <a href="http://www.cekoya.com/?utm_source=agilemaroc&utm_medium=web&utm_campaign=awareness">Cekoya Informatique.</a>
             </div>
         </div>
     </body>

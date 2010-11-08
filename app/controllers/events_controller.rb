@@ -2,39 +2,50 @@ class EventsController < ApplicationController
   
   layout "welcome" 
   helper :date_format
-  before_filter :authenticate_user_admin, :except =>[:index, :show, :register, :unregister] 
+  before_filter :authenticate_user_admin, :except =>[:index, :show,  :unregister] 
   before_filter :initVars 
   
   # GET /events
   # GET /events.xml 
   def index
-    @events = Event.all(:conditions => "datetime >= #{Date.today}", :order => "datetime" )
+    @events = Event.all(:conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @events }
     end
   end
- 
+  
   def self.indexlight
-    @events = Event.all(:conditions => "datetime >= #{Date.today}", :order => "datetime" )
+    @events = Event.all(:conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )
     respond_to do |format|
       format.html
       format.xml  { render :xml => @events }
     end
   end
-
+  
   ## Regsiter 2010-10-04
   def register
     # link the user to the event
-    #get the user from the session
-    @user = current_user ##session[:user]
     # get the event  
-    @event = Event.find(params[:id])
+    @event = Event.find(params[:id])  
+    # get the user from the session
+    @user = current_user 
     @event.register_user(@user)
+    
+    # send confirmation email
+    email = EventMailer.create_confirm(@user, @event)
+    email.set_content_type("text/html")     
+    email.charset = 'uft-8' 
+    #keep for test
+    #render (:text => "<pre>" + email.encoded + "</pre>" )
+    #return
+    EventMailer.deliver(email)
+    flash[:notice]="Merci pour votre inscription. Un message vous a été envoyé." 
     redirect_to(:action => :index)
   end
+  
   def unregister
-    @user = current_user # session[:member]
+    @user = current_user 
     # get the event  
     @event = Event.find(params[:id])
     @event.unregister_user(@user)
@@ -63,7 +74,7 @@ class EventsController < ApplicationController
       format.xml  { render :xml => @event }
     end
   end
-   
+  
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
@@ -115,7 +126,7 @@ class EventsController < ApplicationController
     end
   end
   
-private  
+  private  
   def initVars
     @section = t("Events")
   end

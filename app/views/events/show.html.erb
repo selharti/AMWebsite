@@ -1,38 +1,21 @@
-<h1><%= t('Event') %>: <%=h @event.name %></h1>
 <%= secured_link_to t('Edit'), edit_event_path(@event) %>
 | <%= link_to t('Back'), events_path %>
 | <%= registerUnregister(@event, current_user || nil ) %>
-<table valign=top>
-    <tr>
-        <td>
-            <p class="post-date">
-                <br>
-                <span class="month"><%=h @event.datetime.day %></span>
-                <span class="month"><%=h @event.datetime.month %></span>
-                <span class="month"><%=h @event.datetime.year %></span>
-            </p>
-        </td>
-        <td>
-            <p>
-                <b>Name:</b>
-                <%=h @event.name %>
-            </p>
-            <p>
-                <b>Description:</b>
-                <%= @event.description %>
-            </p>
-        </td>
-        <td>
-            <b>Prix:</b>
-            <%=h h_price(@event.price) %>
-        </td>
-    </tr>
-	<%- if current_user != nil && current_user.is_admin %>
-		<tr><td colspan=3 >Assistance: <%=h @event.users.count%></td></tr>
-		<tr><td colspan=3 >
-			<%for @user in @event.users %>
-			<%=h @user.to_s  %> |
-			<% end %> </td>
-		</tr>
-		<% end -%>
-</table>
+<br/>
+<div _style="border-left:1px solid black">
+<span class="event_title"><%= t('Event') %>: <%=h @event.name %>- <%=h @event.datetime.to_date.to_s(:db) %>( <%=h h_price(@event.price) %>) </span>
+<br/>
+<%= @event.description %>
+<%- if current_user != nil && current_user.is_admin %>
+<p>
+    ----------------
+</p>
+<b>Assistance: </b>
+<%=h @event.users.count %>
+</td>
+</tr>
+<%for @user in @event.users %>
+<%=h @user.to_s %>|<% end %>
+</td>
+<% end -%>
+</div>

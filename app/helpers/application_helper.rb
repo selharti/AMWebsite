@@ -75,4 +75,22 @@ module ApplicationHelper
     res
   end
   
+   # Convert month to text
+  def h_month_to_string(month, shortformat) 
+    months=[ "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octore", "Novembre", "Décembre"]
+    if 0 < month and month < 12 
+      res = months[month-1] 
+    else
+      res = "Invalide"
+    end
+    # short name
+    if shortformat and month != 5
+      res = res.first(3)+ "."
+    end
+    res
+  end
+  def h_date_to_string(shortformat)
+    
+  end
+  
  end

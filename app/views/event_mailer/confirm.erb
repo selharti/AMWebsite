@@ -1,0 +1,14 @@
+Bonjour <%= @user.to_s %><BR/>
+
+Ce message vous est envoyé pour confirmer votre inscription à l'événement du: 24 Novembre 2010
+ 
+<a href=<%= url_for(:controller => :events, :action => :show, :id => @event, :only_path => false, :protocol => 'http') %> ><h4><%= @event.name %></h4></a>
+
+
+Nous sommes contents de vous compter parmis nous et au palaisir de vous rencontrer.
+<BR/>
+Cordialement,<BR/>
+<BR/>
+Agile Maroc<BR/>
+--------------------<BR/>
+www.agilemaroc.org<BR/>

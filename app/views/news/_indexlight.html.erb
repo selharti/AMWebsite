@@ -1,11 +1,11 @@
-<TABLE width="96%" border="0" cellspacing="0" cellpadding="0"> 
+<div _style="border-top:1px solid gray"><TABLE width="96%" border="0,0,0,1" cellspacing="0" cellpadding="0"> 
 	<tr style="width=5em">
-	    <td  align=left>
+	    <td  align=left >
 			<span class="blockTitleAnnex">Nouvelles</span>
 	    </td>
 	</tr>
 	<% rownum = 0 %>
-	<% @news = News.all(:limit =>3, :conditions => "datetime >= #{Date.today}", :order => "datetime" )%>
+	<% @news = News.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )%>
     <% @news.each do |news_item| %>
 	<% rownum = rownum  + 1 %>
 	<tr valign=top 	 <%=h row_alternate_style(rownum)%> >
@@ -17,15 +17,16 @@
     </tr>
 	    <tr valign=top 	 <%=h row_alternate_style(rownum)%> >
 		<td align=right width=auto style="padding-right:2px">
-			<span  style="text-align:right;"> <%=h news_item.datetime.to_date%></span>
-        </td>
+			<span  style="text-align:right;"> <%=h news_item.datetime.to_date %></span>   
+		</td>
     </tr>
 
     <% end %>
 		    <td  align=right>
 			<% link_to("/news")  do %>
-				<span _class="blockTitleAnnex">Voir plus ...>> </span>
+				<span _class="blockTitleAnnex">Toutes les nouvelles</span>
 			<% end %>
 	    </td>
 </table>
-<br/>
+
+</div>
