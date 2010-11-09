@@ -47,7 +47,7 @@ class EventsController < ApplicationController
     #keep for test
     #render (:text => "<pre>" + email.encoded + "</pre>" )
     #return
-   # EventMailer.deliver(email)
+    EventMailer.deliver(email)
     flash[:notice]="Merci pour votre inscription. Un message vous a été envoyé." 
     redirect_to(:action => :index)
   end
