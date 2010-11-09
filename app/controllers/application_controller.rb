@@ -27,7 +27,16 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   def authenticate_user_admin
-    authenticate_user! && current_user.is_admin
+    #authenticate_user! && current_user.is_admin
+     #authenticate_user!
+     if !(user_signed_in? && current_user.is_admin)
+       authenticate_user!
+       if !current_user.is_admin
+         redirect_to("/welcome") # temp. solution
+       end
+      end
+   
+#sign_up_user!
     
   end 
   

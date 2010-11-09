@@ -5,7 +5,7 @@
 	    </td>
 	</tr>
 	<% rownum = 0 %>
-	<% @news = News.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )%>
+	<% @news = News.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime desc" )%>
     <% @news.each do |news_item| %>
 	<% rownum = rownum  + 1 %>
 	<tr valign=top 	 <%=h row_alternate_style(rownum)%> >

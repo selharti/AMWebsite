@@ -5,7 +5,7 @@
 	    </td>
 	</tr>
 	<% rownum = 0 %>
-	<% @events = Event.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )%>
+	<% @events = Event.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" ) %>
     <% @events.each do |event| %>
 	<% rownum = rownum  + 1 %>
 	<tr valign=top 	 <%=h row_alternate_style(rownum)%> >

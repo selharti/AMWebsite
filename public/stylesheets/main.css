@@ -10,7 +10,8 @@ body {
     line-height: 150%;
     margin-left: auto;
     margin-right: auto;
-    width: 65em;
+    _width: 65em;
+    width: 60em;
 }
 
 /* #header, #footer */
@@ -53,7 +54,7 @@ body {
 #underfooter {
     border: medium none;
     clear: both;
-    font-size: xx-small;
+    font-size: x-small;
     height: 20px;
     text-align: right;
 }
@@ -128,7 +129,8 @@ width:600px;
     margin-left: 0;
     margin-top: 0;
     padding-left: 1em;
-    width: 28em;
+    _width: 28em;
+	width: 23em;
 }
 
 .blockTitle {
@@ -147,7 +149,7 @@ width:600px;
 
 #right {
     clear: none;
-    float: left;
+    float: right;
     margin-left: 0;
     margin-top: 0;
     padding-left: 0.5em;
@@ -163,7 +165,8 @@ width:600px;
     font: small-caps medium / 42px "Times New Roman", serif;
     padding-left: 0.5em;
     text-align: left;
-    width: 54em;
+    _width: 54em;
+	width: 49em;
 }
 
 #menu a, smallmenu a {
@@ -222,9 +225,9 @@ vertical-align:middle;
 
 #SocialFollow
 {
-float:left;
+float:right;
 margin-top:0em;
-width:4em;
+width:10em;
 }
 #share
 {

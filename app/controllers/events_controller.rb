@@ -2,7 +2,11 @@ class EventsController < ApplicationController
   
   layout "welcome" 
   helper :date_format
-  before_filter :authenticate_user_admin, :except =>[:index, :show,  :unregister] 
+  before_filter :authenticate_user!, :except =>[:index, :show,  :unregister] 
+  
+  before_filter :authenticate_user_admin, :except =>[:index, :show, :register,  :unregister] 
+ # before_filter :authenticate_user, :except =>[:index, :show,  :unregister] 
+
   before_filter :initVars 
   
   # GET /events
@@ -15,8 +19,8 @@ class EventsController < ApplicationController
     end
   end
   
-  def self.indexlight
-    @events = Event.all(:conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )
+  def indexlight
+    @events = Event.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )
     respond_to do |format|
       format.html
       format.xml  { render :xml => @events }
@@ -28,6 +32,10 @@ class EventsController < ApplicationController
     # link the user to the event
     # get the event  
     @event = Event.find(params[:id])  
+    if @event == nil 
+          flash[:error]="Une erreur s'est produite lors de l'inscription" 
+          redirect_to(:action => :index)
+    end
     # get the user from the session
     @user = current_user 
     @event.register_user(@user)
@@ -39,7 +47,7 @@ class EventsController < ApplicationController
     #keep for test
     #render (:text => "<pre>" + email.encoded + "</pre>" )
     #return
-    EventMailer.deliver(email)
+   # EventMailer.deliver(email)
     flash[:notice]="Merci pour votre inscription. Un message vous a été envoyé." 
     redirect_to(:action => :index)
   end

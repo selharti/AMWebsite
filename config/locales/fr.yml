@@ -14,7 +14,8 @@ fr:
   Unregister: "Se désinscrire"
   sign_in_formEvent: Inscription 
   #"Connectez-vous puis inscrivez-vous à cet événement"
-  sign_in_fromSessions: Se connecter (si vous n'avez pas encore de compte, veuillez vous enregistrer) 
+  sign_in_fromSessions: "Vous avez déjà un compte! Connectez-vous"
+  #connecter (si vous n'avez pas encore de compte, veuillez vous enregistrer) 
   #Menu
   welcome: Accueil
   User: Utilisateur

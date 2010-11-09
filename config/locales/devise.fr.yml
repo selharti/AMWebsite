@@ -9,7 +9,8 @@ fr:
       link: 'Se connecter'
       signed_in: 'Connexion réussie.'
       signed_out: 'Déconnexion réussie.'
-      unauthenticated: 'Vous devez vous connecter avant de continuer.'
+      unauthenticated: ""
+      #'Vous devez vous connecter avant de continuer.'
       unconfirmed: 'Vous devez confirmer votre compte avant de continuer.'
       locked: 'Votre compte est verrouillé.'
       invalid: 'courriel ou mot de passe invalide.'

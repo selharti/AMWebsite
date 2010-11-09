@@ -1,6 +1,6 @@
 Bonjour <%= @user.to_s %><BR/>
 
-Ce message vous est envoyé pour confirmer votre inscription à l'événement du: 24 Novembre 2010
+Ce message vous est envoyé pour confirmer votre inscription à l'événement du: 24 Novembre 2010 à l'École Mohammadia - Rabat
  
 <a href=<%= url_for(:controller => :events, :action => :show, :id => @event, :only_path => false, :protocol => 'http') %> ><h4><%= @event.name %></h4></a>
 

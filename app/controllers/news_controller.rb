@@ -1,12 +1,12 @@
 class NewsController < ApplicationController
   layout "welcome" 
-  before_filter :authenticate_user_admin , :except =>[:index, :show]
+  before_filter :authenticate_user_admin #, :except =>[:index, :show]
   before_filter :initVars
   
   # GET /news
   # GET /news.xml
   def index
-    @news = News.all
+    @news = News.all(:order => "datetime desc" )
     
     respond_to do |format|
       format.html # index.html.erb
