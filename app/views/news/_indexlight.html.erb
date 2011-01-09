@@ -5,7 +5,8 @@
 	    </td>
 	</tr>
 	<% rownum = 0 %>
-	<% @news = News.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime desc" )%>
+	<!--  @news = News.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime desc" ) -->
+	<% @news = News.new.light_news() %> 
     <% @news.each do |news_item| %>
 	<% rownum = rownum  + 1 %>
 	<tr valign=top 	 <%=h row_alternate_style(rownum)%> >
@@ -22,11 +23,18 @@
     </tr>
 
     <% end %>
-		    <td  align=right>
+		  
+		  <tr>  <td  align=right>
 			<% link_to("/news")  do %>
 				<span _class="blockTitleAnnex">Toutes les nouvelles</span>
 			<% end %>
 	    </td>
+		</tr>
+			<tr style="width=5em">
+	    <td  align=left height="24px">
+			<span class="blockAnnexFooter"></span>
+	    </td>
+	</tr>	
 </table>
 
 </div>

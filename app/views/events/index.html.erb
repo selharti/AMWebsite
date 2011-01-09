@@ -1,12 +1,13 @@
 <TABLE width="100%" border="0" cellspacing="0" cellpadding="0"> 
 	<tr style="width=30em">
 	    <td colspan=2 align=left>
-	        <h2>Liste d'événements</h2>
+	        <h2>Liste d'événements à venir</h2>
 	    </td>
 		<%= crud_link_to_withTD('new', new_event_path, '', 2, 'crud_Add_td') %>
 	</tr>	
 	<% rownum = 0 %>
-    <% @events.each do |event| %>
+   <%- if @events[0].count > 0 %> 
+    <% @events[0].each do |event| %>
 	<% rownum = rownum + 1  %>
 	    <tr valign=top 	<%=h row_alternate_style(rownum) %> >
 	        <td _height=auto >
@@ -30,5 +31,44 @@
 	        <%=crud_link_to_withTD('delete', nil, event, 1, 'crud_Edit_Delete_td') %>
 	    </tr>
     <% end %>
+	<% end -%>
+
 </TABLE>
 
+<TABLE width="100%" border="0" cellspacing="0" cellpadding="0"> 
+	<tr style="width=30em">
+	    <td colspan=2 align=left>
+	        <h2>Liste d'événements passés</h2>
+	    </td>
+		<!-- = crud_link_to_withTD('new', new_event_path, '', 2, 'crud_Add_td') -->
+	</tr>	
+	<% rownum = 0 %>
+
+   <%- if @events[1].count > 0 %> 
+   <br>
+    <% @events[1].each do |event| %>
+	<% rownum = rownum + 1  %>
+	    <tr valign=top 	<%=h row_alternate_style(rownum) %> >
+	        <td _height=auto >
+	            <span class="event_title">
+				<% link_to(event)  do %>
+					<%=h event.name  %> 
+				<% end %>	
+				<BR/>
+				</span>			
+				<span class="event_date">
+					<%=h event.datetime.to_date.to_s(:db) %> 
+				</span>	   
+				<br/>
+				        
+	        </td>
+	        <td style="text-align:right;"><%=h h_price(event.price) %><br>
+				<%= registerUnregister(event, current_user || nil ) %>
+	        </td>
+			
+			<%=crud_link_to_withTD('edit', event, nil, 1, 'crud_Edit_Delete_td') %>
+	        <%=crud_link_to_withTD('delete', nil, event, 1, 'crud_Edit_Delete_td') %>
+	    </tr>
+    <% end %>
+	<% end -%>
+</TABLE>

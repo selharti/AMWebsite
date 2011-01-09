@@ -1,6 +1,9 @@
 <div id="left">
-    <!-- < = render "/events/indexlight"  > -->
-	<a href="/events/1"><img border=0 height="475" width="353" title="Premier Séminaire Agile Au Maroc 24 novembre 2010 à partir de 13:30h" alt="Premier Séminaire Agile Au Maroc 24 novembre 2010 à partir de 13:30h" src="/images/event20101124.jpg"></a>
+<!--	<a href="/events/1"> -->
+		<img border=0 height="475" width="353" title="Meilleurs voeux 2001" alt="Meilleurs voeux 2001" src="/images/2011.png">
+		<!-- 
+		</a>
+		-->
 </div>
 <div id="content">
     <span class="blockTitle">Bienvenue</span>
@@ -23,7 +26,15 @@
 	
 </div>
 <div id="right" _style="display: none">
-    <%= render "/news/indexlight" %>
-	<div style="border-top:2px solid black"></div>
-	<%= render "/events/indexlight" %>
+	<% @title = "Nouvelles" %>
+	<% @fieldname = "title" %>
+	<% @link = "/news" %>
+	<% @items = News.new.light_news() %> 
+	<%= render "/shared/indexlight" %>
+	
+	<% @title = "Événements" %>
+	<% @fieldname = "name" %>
+	<% @link = "/events" %>
+	<% @items = Event.new.light_events %>
+	<%= render "/shared/indexlight" %>
 </div>

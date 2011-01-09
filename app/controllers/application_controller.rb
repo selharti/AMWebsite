@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
          redirect_to("/welcome") # temp. solution
        end
       end
-   
+ 
 #sign_up_user!
     
   end 

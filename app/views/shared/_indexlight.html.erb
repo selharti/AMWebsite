@@ -1,30 +1,29 @@
 <div _style="border-top:1px solid gray"><TABLE width="96%" border="0" cellspacing="0" cellpadding="0"> 
 	<tr style="width=5em">
 	    <td  align=left class="blockTitleAnnex">
-			<span >Événements</span>
+			<span ><%= @title %></span>
 	    </td>
 	</tr>
 	<% rownum = 0 %>
-	<% @events = Event.all(:limit =>3, :conditions => "datetime >= '" + Date.today.to_s(:db) + "'", :order => "datetime" ) %>
-    <% @events.each do |event| %>
+    <% @items.each do |item| %>
 	<% rownum = rownum  + 1 %>
 	<tr valign=top 	 <%=h row_alternate_style(rownum)%> >
 			<td width=auto style="padding-left:2px">	
-			<% link_to(event)  do %>
-				<%=h event[@fieldname]  %> 
+			<% link_to(item)  do %>
+				<%=h item[@fieldname]  %> 
 			<% end %>	
         </td>
     </tr>
 	    <tr valign=top 	 <%=h row_alternate_style(rownum)%> >
 		<td align=right width=auto style="padding-right:2px">
-			<span  style="text-align:right;"> <%=h event.datetime.to_date%></span>
+			<span  style="text-align:right;"> <%=h item.datetime.to_date%></span>
         </td>
     </tr>
 
     <% end %>
 	<tr>    <td  align=right <%=h row_alternate_style(rownum+1)%> >
-			<% link_to("/events")  do %>
-				<span _class="blockTitleAnnex">Tous les événements</span>
+			<% link_to(@link)  do %>
+				<span _class="blockTitleAnnex">voir tout</span>
 			<% end %>
 	    </td>
 	</tr>

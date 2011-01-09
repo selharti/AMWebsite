@@ -1,11 +1,29 @@
 <%= secured_link_to t('Edit'), edit_event_path(@event) %>
 | <%= link_to t('Back'), events_path %>
 | <%= registerUnregister(@event, current_user || nil ) %>
+
 <br/>
 <div _style="border-left:1px solid black">
-<span class="event_title"><%= t('Event') %>: <%=h @event.name %>- <%=h @event.datetime.to_date.to_s(:db) %>( <%=h h_price(@event.price) %>) </span>
+<span class="event_title"><%= t('Event') %>: <%=h @event.name %>- <%=h @event.datetime.to_date.to_s(:db) %> (<%=h h_price(@event.price) %>) </span>
 <br/>
-<%= @event.description %>
+<%- if @event.datetime.to_date >= Date.today %>
+	<%= @event.description %>
+<% else %>	
+	Merci à toutes les personnes qui ont assisté à ou manifesté leur interêt pour notre événement.
+	Merci aussi à toutes les personnes et organisations qui ont participé de prêt ou de le loin à sa réalisation.
+	<%= @event.publicpostevent %>
+	<%- if @event.postevent != nil or @event.postevent == "" %>
+		<%- if current_user == nil %>
+			<BR>Connectez-vous pour visualiser les résultats de l'évaluation de l'événement, les photos...
+			<BR><%= link_to t("sign_in"), new_user_session_path %>
+			<% else %>
+		 		<%= @event.postevent %>
+			<% end -%>	
+	<% else %>
+		<BR>L'évaluaton de l'événement sera disponible bientôt...(Merci pour votre compréhension)
+	<% end -%>	
+<% end -%>
+
 <%- if current_user != nil && current_user.is_admin %>
 <p>
     ----------------

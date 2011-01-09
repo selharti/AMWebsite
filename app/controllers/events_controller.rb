@@ -12,10 +12,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml 
   def index
-    @events = Event.all(:conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime" )
+    #Comming events (ascending order) in @events[0] and archived events (descending order) in @events[1]  
+    @events = [Event.all(:conditions => "datetime >= '" + Date.today.to_s(:db) + "'", :order => "datetime" ),
+    Event.all(:conditions => "datetime < '" + Date.today.to_s(:db) + "'", :order => "datetime desc" ) ]
+    # @eventsArchive = Event.all(:conditions => "datetime < #{Date.today.to_s(:db)}", :order => "datetime" )
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @events }
+      format.xml  { render :xml => @events  }
     end
   end
   

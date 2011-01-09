@@ -5,6 +5,9 @@ class Event < ActiveRecord::Base
   def to_s
     "#{self.name}, (#{self.datetime})" 
   end
+  def light_events()
+   Event.all(:limit =>3, :conditions => "datetime >= #{Date.today.to_s(:db)}", :order => "datetime desc" )
+  end
   
   def register_user(user)
     if user != nil
@@ -26,4 +29,9 @@ class Event < ActiveRecord::Base
       res > 0 
     end
   end
+  
+  def is_registration_open 
+    maxaudience > 0 && users.count >= maxaudience
+  end
+
 end

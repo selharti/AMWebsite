@@ -12,13 +12,22 @@
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_area :description , :cols => 100, :rows => 40%>
+    <%= f.text_area :description , :cols => 60, :rows => 20%>
   </p>
 
   <p>
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </p>
+  
+    <p>
+    <%= f.label :publicpostevent %><br />
+    <%= f.text_area :publicpostevent, :cols => 60, :rows => 20%>
+  </p> 
+  <p>
+    <%= f.label :postevent %><br />
+    <%= f.text_area :postevent, :cols => 60, :rows => 20%>
+  </p>  
   <p>
     <%= f.submit 'Update' %>
   </p>
