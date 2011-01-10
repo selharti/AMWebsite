@@ -6,7 +6,7 @@
 		<%= crud_link_to_withTD('new', new_event_path, '', 2, 'crud_Add_td') %>
 	</tr>	
 	<% rownum = 0 %>
-   <%- if @events[0].count > 0 %> 
+   <!-- - if @events[0].count > 0  does work i 1.8.6 on server --> 
     <% @events[0].each do |event| %>
 	<% rownum = rownum + 1  %>
 	    <tr valign=top 	<%=h row_alternate_style(rownum) %> >
@@ -31,7 +31,7 @@
 	        <%=crud_link_to_withTD('delete', nil, event, 1, 'crud_Edit_Delete_td') %>
 	    </tr>
     <% end %>
-	<% end -%>
+	 <!-- end -->
 
 </TABLE>
 
@@ -44,7 +44,7 @@
 	</tr>	
 	<% rownum = 0 %>
 
-   <%- if @events[1].count > 0 %> 
+    <!-- if @events != nil & @events[1] != nil & @events[1].count > 0 --> 
    <br>
     <% @events[1].each do |event| %>
 	<% rownum = rownum + 1  %>
@@ -70,5 +70,5 @@
 	        <%=crud_link_to_withTD('delete', nil, event, 1, 'crud_Edit_Delete_td') %>
 	    </tr>
     <% end %>
-	<% end -%>
+	 <!-- end -->
 </TABLE>
