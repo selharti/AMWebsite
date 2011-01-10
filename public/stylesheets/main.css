@@ -149,7 +149,7 @@ width:600px;
     _margin: 0 0;
 */
 	
-background:url("/images/sidebar-header5.gif") no-repeat scroll 0 0 transparent;
+background:url("/images/sidebar-header.gif") no-repeat scroll 0 0 transparent;
 display:block;
 font-size:1.17em;
 font-weight:normal;
@@ -158,7 +158,7 @@ padding-left:10px;
 }
 .blockAnnexFooter
 {
-	background:url("/images/sidebar-footer5.gif") no-repeat scroll 0 0 transparent;
+	background:url("/images/sidebar-footer.gif") no-repeat scroll 0 0 transparent;
 display:block;
 _font-size:1.17em;
 _font-weight:normal;

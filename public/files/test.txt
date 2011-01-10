@@ -1,3 +1,0 @@
-test git file 
-changed again test 2
-changed again test 3
