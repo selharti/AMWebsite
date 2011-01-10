@@ -42,7 +42,7 @@ set :rails_env, "production"
 # end
 
 task :after_update_code do
-  run "ln -s #{deploy_to}/#{shared_dir}/config/deploy.rb #{current_release}/config/deploy.rb"
+#  run "ln -s #{deploy_to}/#{shared_dir}/config/deploy.rb #{current_release}/config/deploy.rb"
   run "ln -s #{deploy_to}/#{shared_dir}/config/database.yml #{current_release}/config/database.yml"
   run "ln -s #{deploy_to}/#{shared_dir}/config/authsmtp.rb #{current_release}/config/initializers/authsmtp.rb"
   run "ln -s #{deploy_to}/#{shared_dir}/config/session_store.rb #{current_release}/config/initializers/session_store.rb"
