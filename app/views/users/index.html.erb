@@ -21,6 +21,21 @@
 	-->
     <tr style="font-weight:bold;">
         <td>
+            email
+        </td>
+        <td>
+            sign in count
+        </td>
+        <td>
+            last_sign_in_at
+        </td>     
+        <td>
+            last_sign_in_ip
+        </td>     
+        <td>
+            created_at
+        </td>     
+		<td>
             Nom, Prénom
         </td>
         <td>
@@ -42,11 +57,26 @@
 	 <%=h row_alternate_style(rownum)%>
 		>
         <td height=auto>
-            <% link_to(user)  do %>
-            <%=h user.to_s  %>(<%=h user.email  %>)
-            <% end %>
+            <%=h user.email  %> 
         </td>
         <td height=auto>
+			<%=h user.sign_in_count %>
+        </td>    
+        <td height=auto>
+			<%=h user.last_sign_in_at %>
+        </td> 		
+        <td height=auto>
+			<%=h user.last_sign_in_ip %>
+        </td> 		
+        <td height=auto>
+			<%=h user.created_at %>
+        </td> 		
+		<td height=auto>
+            <% link_to(user)  do %>
+            <%=h user.to_s  %>
+            <% end %>
+        </td>        
+		<td height=auto>
             <span _class="event_title"><%=h user.organization %></span>
         </td>
         <td height=auto>
