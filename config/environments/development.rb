@@ -15,7 +15,7 @@ config.action_controller.perform_caching             = false
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default_url_options = { :host => 'localhost:3002' }
+config.action_mailer.default_url_options = { :host => 'localhost:3007' }
 #config.action_mailer.delivery_method = :test
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.default_charset = "utf-8"  

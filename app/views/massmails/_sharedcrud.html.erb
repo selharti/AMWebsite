@@ -1,0 +1,87 @@
+<% form_for(@massmail) do |f| %>
+<table>
+	<tr>
+		<td height=auto colspan=2 style="font-style:italic; font-size:small; color:red;">
+			<!-- <%= f.error_messages %> -->
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;">
+			<%= t("created") %>:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :datetimecreated %>
+		</td>
+	</tr>	
+	<tr>
+		<td style="text-align:right;">
+			<%= t("from") %>:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :from %>
+		</td>
+	</tr>	
+	<tr>
+		<td style="text-align:right;">
+			<%= t("to") %>:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :to %>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;">
+			<%= t("bcc") %>:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_area :bcc %>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;">
+			<%= t("subject") %>:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :subject %>
+		</td>		
+	</tr>
+<!--	<tr>
+		<td style="text-align:right;">
+			<%= t("sentbyuser") %>:
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_field :sentbyuser %>
+		</td>
+	</tr> -->	
+		<tr>
+		<td style="text-align:right;">
+		</td>
+		<td style="text-align:left;">
+			<%= f.text_area :body %>
+		</td>
+	</tr>
+</table>
+
+  <p>
+    <%= f.submit @withaction %>
+  </p>
+  <p>
+    <%= f.submit  "update" %>
+  </p>
+  
+<% end %>
+
+<!-- <%= link_to 'Back', messages_path %> 
+
+
+<h1>New massmail</h1>
+
+<% form_for(@massmail) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', massmails_path %>-->

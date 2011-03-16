@@ -1,10 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :massmails
+
   map.devise_for :users
 
   map.resources :news , :singular => "news_item"
   map.resources :users
   map.resources :events
   map.resources :messages
+  #map.resources :massmailer
   
  #map.connect 'messages/',  :controller => 'messages', :action => 'new'
 

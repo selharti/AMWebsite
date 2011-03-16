@@ -9,7 +9,8 @@
         <link rel="stylesheet" type="text/css" href="/stylesheets/main.css"/>
     </head>
     <body>
-        <script type="text/javascript">
+       <!-- Google analytics commented for debug only
+	    <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-16786107-1']);
             _gaq.push(['_trackPageview']);
@@ -22,6 +23,7 @@
                 s.parentNode.insertBefore(ga, s);
             })();
         </script>
+		-->
         <div id="container">
             <div id="header">
                 <div id="header_img">
@@ -55,15 +57,19 @@
                     <%= secured_link_to(t('Users'), '/users') %>
                     <%= link_to(t('Contact_us'), '/messages/new') %>
                 </div>
-                <div id="SocialFollow">
-                    <!-- Start SocialFollow.com Button Code --><img src="http://www.socialfollow.com/button/image/?b=6060" class="socialFollowImage" alt="Follow Me!" />
+                  <!-- Start SocialFollow.com Button Code -->
+				  <!-- SocialFollow commented for debug only
+		        <div id="SocialFollow">
+                    <img src="http://www.socialfollow.com/button/image/?b=6060" class="socialFollowImage" alt="Follow Me!" />
                     <script type="text/javascript" src="http://www.socialfollow.com/button/?b=6060">
                     </script>
                     <script type="text/javascript">
                         socialfollow.init("socialFollowImage");
                     </script>
-                    <!-- End SocialFollow.com Button Code -->
+                    
                 </div>
+				-->
+				<!-- End SocialFollow.com Button Code -->
             </div>
             <div id="middle">
                 <%- if flash[:notice] != nil %>
@@ -92,7 +98,9 @@
             </div>
             <div id="footer">
                 <div id="share">
-                    <!-- AddToAny BEGIN --><a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=MuURL&amp;linkname=MuPage"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
+                    <!-- AddToAny BEGIN -->
+					<!-- AddToAny commented for debug only
+					<a class="a2a_dd" href="http://www.addtoany.com/share_save?linkurl=MuURL&amp;linkname=MuPage"><img src="http://static.addtoany.com/buttons/share_save_171_16.png" width="171" height="16" border="0" alt="Share"/></a>
                     <script type="text/javascript">
                         var a2a_config = a2a_config || {};
                         a2a_config.linkname = "Agile Maroc";
@@ -100,6 +108,7 @@
                     </script>
                     <script type="text/javascript" src="http://static.addtoany.com/menu/page.js">
                     </script>
+					 -->
                     <!-- AddToAny END -->
                 </div>
                 <div id="footerCR">
