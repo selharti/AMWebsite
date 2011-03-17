@@ -12,11 +12,11 @@ module EventsHelper
         end
       else
         # if event.maxaudience != nil && event.maxaudience > 0 && event.users.count >= event.maxaudience
-        if !event.is_registration_open
-            "Désolé, mais l'inscription à cet évenement est fermée. Merci pour votre compréhension."
-          else
+       # if !event.is_registration_open
+        #    "Désolé, mais l'inscription à cet évenement est fermée. Merci pour votre compréhension."
+         # else
             link_to t("sign_in_formEvent"), :action => :register, :id => event # new_user_session_path 
-        end
+        #end
       end
     end
   end
