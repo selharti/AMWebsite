@@ -31,7 +31,8 @@ class Event < ActiveRecord::Base
   end
   
   def is_registration_open 
-    maxaudience = 0 || users.count <= maxaudience # 0 for unlimited, or registred counter is less than max allowed
+   # maxaudience = 0 || users.count <= maxaudience # 0 for unlimited, or registred counter is less than max allowed
+   true
   end
 
 end
